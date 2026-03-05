@@ -1,8 +1,8 @@
 # Sentry Data Scout v0.4.4 FL 🎯
 
-**[PL]** Sentry Data Scout to zaawansowany kontroler markera Spyder MR3 oparty na układzie ESP32. Projekt wykorzystuje asynchroniczną maszynę stanów (RTOS) do jednoczesnego sterowania serwomechanizmami dużej mocy, zbierania danych z sensorów (odrzut, dźwięk, temperatura) oraz obsługi serwera WWW do zdalnego sterowania z telefonu. Pełna kalibracja serw, diagnostyka sprzętowa, tryb AP offline i zapis danych do CSV — wszystko z poziomu przeglądarki.
+**[PL]** Sentry Data Scout to zaawansowany kontroler markera Spyder MR3 oparty na układzie ESP32. Projekt wykorzystuje asynchroniczną maszynę stanów (RTOS) do jednoczesnego sterowania serwomechanizmami dużej mocy, zbierania danych z sensorów (odrzut, dźwięk, temperatura) oraz obsługi serwera WWW do zdalnego sterowania z telefonu. Pełna kalibracja serw, diagnostyka sprzętowa, tryb AP offline i zapis danych do CSV -- wszystko z poziomu przeglądarki.
 
-**[EN]** Sentry Data Scout is an advanced ESP32-based controller for the Spyder MR3 marker. The project uses an asynchronous state machine (RTOS) to simultaneously control high-power servos, collect sensor data (recoil, audio, temperature), and serve a Web UI for remote smartphone control. Full servo calibration, hardware diagnostics, offline AP mode and CSV data logging — all from a browser.
+**[EN]** Sentry Data Scout is an advanced ESP32-based controller for the Spyder MR3 marker. The project uses an asynchronous state machine (RTOS) to simultaneously control high-power servos, collect sensor data (recoil, audio, temperature), and serve a Web UI for remote smartphone control. Full servo calibration, hardware diagnostics, offline AP mode and CSV data logging -- all from a browser.
 
 **Author:** Maciej Kasperek (vonKrappitz)
 
@@ -14,16 +14,16 @@
 * **Web Interface:** Built-in HTML/JS/CSS single-page app with dark/light mode toggle 🌙/🌞
 * **Step-by-Step Calibration Wizard:** Guided trigger and N2 screw servo calibration, persisted to flash.
 * **Telemetry Data:**
-    * **Recoil (IMU):** BNO055 via I2C — peak G-force per shot.
-    * **Acoustics:** Analog MAX4466 mic — peak & average dB calculation (~10-40kHz sampling).
-    * **Barrel Temp:** DS18B20 1-Wire — async read within 500ms measurement window.
+    * **Recoil (IMU):** BNO055 via I2C -- peak G-force per shot.
+    * **Acoustics:** Analog MAX4466 mic -- peak & average dB calculation (~10-40kHz sampling).
+    * **Barrel Temp:** DS18B20 1-Wire -- async read within 500ms measurement window.
 * **Data Logging:** Exports clean `logs.csv` from LittleFS with per-shot telemetry.
 * **Weather Sync:** Live environmental data (Temp, Humidity, Pressure) via OpenWeather API + browser GPS.
 * **Diagnostics Panel:** Traffic-light health indicators (🟢🟡🔴) for all sensors, WiFi RSSI, heap, voltage.
 * **WiFi AP Fallback:** No network in 15s? ESP32 auto-starts its own hotspot (`SentryAP`).
 * **Last-Shot Preview:** Barrel temp, G-force and dB shown on status card after each shot.
 * **Safety:** Min cadence 500ms enforced, double-start protection (409 Conflict), constrain on all servo inputs.
-* **Power Persistence:** Servo power level (0-100%) saved to flash — survives reboot.
+* **Power Persistence:** Servo power level (0-100%) saved to flash -- survives reboot.
 * **38 Unit Tests:** Full state machine coverage compiled natively with g++.
 
 ---
@@ -96,7 +96,7 @@
     │                             │ ~10-40kHz ADC │  │
     │                             └───────────────┘  │
     │                                                │
-    │  Priority 1 on both cores — yield() prevents   │
+    │  Priority 1 on both cores -- yield() prevents   │
     │  task starvation and enables fair scheduling.   │
     └────────────────────────────────────────────────┘
 ```
@@ -164,7 +164,7 @@ Install via Library Manager:
     * Partition Scheme: **Default 4MB with spiffs**
 5. Flash the code to your ESP32.
 6. Open `http://sentry.local` (or check Serial Monitor for IP).
-7. **Run the Calibration Wizard** — it guides you step by step.
+7. **Run the Calibration Wizard** -- it guides you step by step.
 8. Fire! 🔥
 
 ### WiFi Modes / Tryby WiFi
@@ -195,15 +195,15 @@ UPDATE_V,1,85.30
 
 ```
 LittleFS:
-  /logs.csv            — Shot log / Log strzałów
-  /calibration.json    — Servo calibration + power level / Kalibracja + moc
+  /logs.csv            -- Shot log / Log strzałów
+  /calibration.json    -- Servo calibration + power level / Kalibracja + moc
 ```
 
 ---
 
 ## 🧪 Unit Tests / Testy jednostkowe
 
-File: `test_sentry_0_4_4.cpp` — **38 tests, 10 groups, 100% PASS ✅**
+File: `test_sentry_0_4_4.cpp` -- **38 tests, 10 groups, 100% PASS ✅**
 
 ```bash
 g++ -std=c++17 -o test_sentry test_sentry_0_4_4.cpp && ./test_sentry
@@ -228,7 +228,7 @@ g++ -std=c++17 -o test_sentry test_sentry_0_4_4.cpp && ./test_sentry
 
 ### v0.3 → v0.4
 * ✅ Servo calibration system with LittleFS persistence / System kalibracji z zapisem
-* ✅ mDNS — `http://sentry.local`
+* ✅ mDNS -- `http://sentry.local`
 * ✅ Power slider 0-100% mapped to calibrated range / Suwak mocy na skalibrowany zakres
 * ✅ Live servo preview during calibration / Podgląd serwa na żywo
 
@@ -258,7 +258,7 @@ g++ -std=c++17 -o test_sentry test_sentry_0_4_4.cpp && ./test_sentry
 * ✅ Reset logs with confirm() dialog / Reset logów z potwierdzeniem
 * ✅ Minimum cadence 500ms enforced (backend + UI) / Min kadencja 500ms
 * ✅ WiFi mode badge (STA/AP) / Wskaźnik trybu WiFi
-* ✅ 38 unit tests — all green / 38 testów — wszystkie zielone ✅
+* ✅ 38 unit tests -- all green / 38 testów -- wszystkie zielone ✅
 
 ---
 
