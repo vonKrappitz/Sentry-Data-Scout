@@ -37,7 +37,7 @@
 
 ```
     ┌─────────────┐
-    │ Battery 7.4V│
+    │Battery 7.4V │
     └──────┬──────┘
            │
     ┌──────▼──────┐
@@ -96,8 +96,8 @@
     │                             │ ~10-40kHz ADC │  │
     │                             └───────────────┘  │
     │                                                │
-    │  Priority 1 on both cores -- yield() prevents   │
-    │  task starvation and enables fair scheduling.   │
+    │  Priority 1 on both cores -- yield() prevents  │
+    │  task starvation and enables fair scheduling.  │
     └────────────────────────────────────────────────┘
 ```
 
@@ -266,4 +266,5 @@ g++ -std=c++17 -o test_sentry test_sentry_0_4_4.cpp && ./test_sentry
 
 *(Apache 2.0)*
 
-**Author:** Maciej Kasperek (vonKrappitz)
+---
+*Created by Maciej Kasperek (vonKrappitz)*
